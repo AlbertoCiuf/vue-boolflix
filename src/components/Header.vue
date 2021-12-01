@@ -6,15 +6,32 @@
       </a>
     </div>
     <div class="search">
-      <input type="text" placeholder="Cerca un film o una serie tv...">
-      <div class="btn">Cerca</div>
+      <input type="text" placeholder="Cerca un film o una serie tv..."
+        v-model="searchedValue"
+        @keyup.enter="callSearch"
+      >
+      <div class="btn"
+        @click="callSearch"
+      >
+        Cerca
+      </div>
     </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  data(){
+    return {
+      searchedValue:''
+    }
+  },
+  methods: {
+    callSearch(){
+      this.$emit('sendSearch', this.searchedValue);
+    }
+  }
 }
 </script>
 
