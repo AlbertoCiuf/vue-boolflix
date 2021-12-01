@@ -46,6 +46,10 @@ export default {
     a h1 {
       color: red;
       font-size: 48px;
+      transition: all .3s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
     .search {
       display: flex;
@@ -62,6 +66,10 @@ export default {
         font-family: Arial, Helvetica, sans-serif;
         padding: 5px 10px;
         cursor: pointer;
+        transition: all .3s;
+        &:hover {
+        transform: scale(1.1);
+        }
       }
     }
   }

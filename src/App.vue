@@ -12,7 +12,7 @@
 import Header from '../src/components/Header.vue'
 import Main from '../src/components/Main.vue'
 
- import axios from 'axios';
+import axios from 'axios';
 
 
 export default {
@@ -24,19 +24,23 @@ export default {
   data(){
     return {
       valueToSearch:'',
-      apiResults: []
+      apiResults: [],
+      apiUrl: 'https://api.themoviedb.org/3/search/',
+      searchTypeMovie: 'movie',
+      apiKey: '1f355eac8ba46b00364e7038d200138b',
+
     }
   },
   methods:{
 
     callAPI(){
-      //stringa statica con film di esempio. Ho scelto "Harry Potter" per provare
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=1f355eac8ba46b00364e7038d200138b&query=harry potter&language=it-IT')
+      //concateno in template literal i vari data per comporre l'url che chiama l'API
+      axios.get(`${this.apiUrl}${this.searchTypeMovie}?api_key=${this.apiKey}&query=${this.valueToSearch}&language=it-IT`)
         .then( r => {
           this.apiResults = r.data.results;
           console.log(this.apiResults);
         })
-        .catch ( e => {
+        .catch( e => {
           console.log('ERRORE', e);
         })
     },
