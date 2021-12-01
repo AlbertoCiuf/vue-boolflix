@@ -32,6 +32,7 @@ export default {
     }
     .search {
       display: flex;
+      align-items: center;
       input {
         height: 30px;
         width: 500px;
@@ -42,7 +43,8 @@ export default {
         background-color: red;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
-        padding: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
       }
     }
   }
