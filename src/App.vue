@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    
+    <Header />
+    <Main />
   </div>
 </template>
 
 <script>
 
+import Header from '../src/components/Header.vue'
+import Main from '../src/components/Main.vue'
 
 export default {
   name: 'App',
   components: {
-
+    Header,
+    Main
   }
 }
 </script>
 
 <style lang="scss">
-
+  @import "./assets/style/generals.scss";
+  @import "./assets/style/vars.scss";
 </style>
