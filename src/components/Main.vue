@@ -9,7 +9,7 @@
       />
     </section>
     <h2 v-if="resultListSeries.length > 0">Serie TV</h2>
-    <section class="film">
+    <section class="serie">
       <CardSeries 
         v-for="item in resultListSeries" 
         :key="item.id" 
@@ -45,8 +45,9 @@ export default {
     h2 {
       color: #fff;
       font-size: 40px;
+      text-shadow: 5px 10px 10px darken($bg-color, 15%);
     }
-    section.film {
+    section.film, section.serie {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;

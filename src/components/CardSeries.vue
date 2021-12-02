@@ -2,7 +2,12 @@
   <div class="card">
       <div class="card-inner">
         <div class="front">
-          <img class="poster" :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`" :alt="`Locandina ${result.name}`">
+          <img v-if="result.poster_path !== null"
+            class="poster" 
+            :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`" 
+            :alt="`Locandina ${result.name}`"
+          >
+          <h2 v-else>{{result.name}}: <p>Nessuna locandina trovata</p> </h2>
         </div>
         <div class="back">
           <ul>
@@ -57,54 +62,4 @@ export default {
 </script>
 
 <style lang="scss">
-  // .card {
-  //   width: calc(100% / 4 - 40px);
-  //   margin: 20px;
-  //   padding: 20px;
-  //   // background-color: tomato;
-  //   min-height: 400px;
-  //   font-family: Arial, Helvetica, sans-serif;
-  //   // overflow: auto;
-
-  //   perspective: 1000px;
-  //     .card-inner {
-  //       position: relative;
-  //       width: 100%;
-  //       height: 100%;
-  //       text-align: center;
-  //       transition: transform 0.8s;
-  //       transform-style: preserve-3d;
-  //       .front img {
-  //         width: 100%;
-  //         height: 100%;
-  //         object-fit: cover;
-  //       }
-  //     }
-  //   &:hover .card-inner {
-  //     transform: rotateY(180deg);
-  //   } 
-  //     .front, .back {
-  //       position: absolute;
-  //       width: 100%;
-  //       height: 100%;
-  //       backface-visibility: hidden;
-  //     } 
-  //     .back {
-  //       background-color: lightgrey;
-  //       transform: rotateY(180deg);
-  //     }
-  //   ul {
-  //     padding: 30px 0;
-  //     li {
-  //       padding-bottom: 20px;
-  //       img.language-flag {
-  //         width: 30px;
-  //         vertical-align: middle;
-  //       }
-  //       p {
-  //         display: inline-block;
-  //       }
-  //     }
-  //   }
-  // }
 </style>
