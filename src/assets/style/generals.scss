@@ -15,4 +15,6 @@ a, a:visited {
 }
 ul {
   list-style: none;
+  height: 100%;
+  overflow: auto;
 }
