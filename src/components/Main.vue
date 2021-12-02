@@ -1,6 +1,7 @@
 <template>
   <main>
     <div class="wrapper">
+      <!-- messaggio di default al caricamento della pagina o al reset della ricerca -->
       <div class="default-msg"
         v-if="resultListMovies.length <= 0 && resultListSeries.length <= 0"
       >
@@ -8,6 +9,8 @@
       </div>
 
       <div v-else class="content">
+
+        <!-- elenco film -->
         <h2 v-if="resultListMovies.length > 0">Film</h2>
         <section class="film">
           <Card 
@@ -16,6 +19,8 @@
             :result="item"
           />
         </section>
+
+        <!-- elenco serie tv -->
         <h2 v-if="resultListSeries.length > 0">Serie TV</h2>
         <section class="serie">
           <Card 
@@ -41,9 +46,6 @@ export default {
   props: {
     resultListMovies: Array,
     resultListSeries: Array,
-  },
-  mounted(){
-    console.log(this.resultListMovies, this.resultListSeries);
   }
 }
 </script>
@@ -64,4 +66,5 @@ export default {
       flex-wrap: wrap;
     }
   }
+
 </style>

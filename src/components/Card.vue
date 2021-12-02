@@ -2,7 +2,7 @@
   <div class="card">
       <div class="card-inner">
 
-        <!-- gestione locandina mancante film -->
+        <!-- gestione locandina film -->
         <div class="front" v-if="result.title">
           <img v-if="result.poster_path !== null" 
             class="poster" 
@@ -12,7 +12,7 @@
           <h2 v-else>{{result.title}} <p>Nessuna locandina trovata</p> </h2>
         </div>
 
-        <!-- gestione locandina mancante serie tv -->
+        <!-- gestione locandina serie tv -->
         <div class="front" v-else>
           <img v-if="result.poster_path !== null"
             class="poster" 
@@ -21,6 +21,7 @@
           >
           <h2 v-else>{{result.name}} <p>Nessuna locandina trovata</p> </h2>
         </div>
+
         <div class="back">
           <!-- all'interno della lista, ogni 'li' che varia da serie tv a film controlla di quale dei due si tratta tramite la direttiva v-if e si comporta di conseguenza scegliendo quale key dell'oggetto stampare a schermo -->
           <ul>
@@ -70,6 +71,7 @@
             </li>
           </ul>
         </div>
+        
       </div>
     </div>
 </template>
