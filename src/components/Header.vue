@@ -1,7 +1,8 @@
 <template>
   <header>
     <div class="logo">
-      <a href="#">
+      <a href="#"
+      @click="$emit('resetSearch','')">
         <h1>boolflix</h1>
       </a>
     </div>

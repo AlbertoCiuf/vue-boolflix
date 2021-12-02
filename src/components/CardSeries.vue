@@ -7,7 +7,7 @@
             :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`" 
             :alt="`Locandina ${result.name}`"
           >
-          <h2 v-else>{{result.name}}: <p>Nessuna locandina trovata</p> </h2>
+          <h2 v-else>{{result.name}} <p>Nessuna locandina trovata</p> </h2>
         </div>
         <div class="back">
           <ul>
