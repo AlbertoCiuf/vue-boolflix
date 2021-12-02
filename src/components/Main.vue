@@ -27,7 +27,10 @@
         </li>
         <li>
           <strong>Descrizione: </strong>
-          <p>{{item.overview}}</p>
+          <p v-if=" item.overview !== '' ">
+            {{item.overview}}
+          </p>
+          <p v-else>N/A</p>
         </li>
         
       </ul>
@@ -36,29 +39,17 @@
 </template>
 
 <script>
-
-  // import axios from 'axios';
-
 export default {
   name: 'Main',
   data(){
     return {
-      // apiResults: []
     }
   },
   props: {
     resultList: Array
   },
   methods: {
-    // callAPI(){
-    //   //stringa statica con film di esempio. Ho scelto "Harry Potter" per provare
-    //   axios.get('https://api.themoviedb.org/3/search/movie?api_key=1f355eac8ba46b00364e7038d200138b&query=harry potter&language=it-IT')
-    //     .then( r => {
-    //       // console.log(r.data.results);
-    //       this.apiResults = r.data.results;
-    //       console.log(this.apiResults);
-    //     })
-    // }
+    
   },
   mounted(){
     console.log(this.resultList);
@@ -85,7 +76,7 @@ export default {
       ul {
         padding: 50px 0;
         li {
-          padding-bottom: 20px;
+          padding-bottom: 15px;
           p {
             display: inline-block;
           }
