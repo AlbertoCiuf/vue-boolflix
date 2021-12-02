@@ -4,7 +4,8 @@
       @sendSearch="getSearch"
     />
     <Main 
-      :resultList="apiResults"
+      :resultListMovies="apiResultsMovies"
+      :resultListSeries="apiResultsSeries"
     />
   </div>
 </template>
@@ -26,7 +27,8 @@ export default {
   data(){
     return {
       valueToSearch:'',
-      apiResults: [],
+      apiResultsMovies: [],
+      apiResultsSeries: [],
       // apiUrl: 'https://api.themoviedb.org/3/search/',
       // searchTypeMovie: 'movie',
       // apiKey: '1f355eac8ba46b00364e7038d200138b',
@@ -39,6 +41,7 @@ export default {
       //axios.get(`${this.apiUrl}${this.searchTypeMovie}?api_key=${this.apiKey}&query=${this.valueToSearch}&language=it-IT`)
 
       //chiamo l'api e gestisco la ricerca dinamicamente con params:{} - come query è impostato this.valueToSearch, che è il v-model che rende dinamica e funzionante la ricerca
+      //FILM
       axios.get('https://api.themoviedb.org/3/search/movie',{
         params: {
           api_key: '1f355eac8ba46b00364e7038d200138b',
@@ -47,8 +50,22 @@ export default {
         }
       })
         .then( r => {
-          this.apiResults = r.data.results;
-          console.log(this.apiResults);
+          this.apiResultsMovies = r.data.results;
+        })
+        .catch( e => {
+          console.log('ERRORE', e);
+        })
+
+      //SERIE TV
+      axios.get('https://api.themoviedb.org/3/search/tv',{
+        params: {
+          api_key: '1f355eac8ba46b00364e7038d200138b',
+          query: this.valueToSearch,
+          language: 'it-IT'
+        }
+      })
+        .then( r => {
+          this.apiResultsSeries = r.data.results;
         })
         .catch( e => {
           console.log('ERRORE', e);

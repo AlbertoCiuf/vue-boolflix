@@ -3,7 +3,7 @@
       <ul>
         <li>
           <strong>Titolo originale: </strong>
-          <p>{{result.original_title}}</p>
+          <p>{{result.original_name}}</p>
         </li>
         <li>
           <strong>Lingua originale: </strong>
@@ -18,11 +18,11 @@
           <p v-else>{{result.original_language}}</p>
         <li>
           <strong>Titolo: </strong>
-          <p>{{result.title}}</p>
+          <p>{{result.name}}</p>
         </li>
         <li>
           <strong>Data di Uscita: </strong>
-          <p>{{result.release_date.split('-').reverse().join('/')}}</p>
+          <p>{{result.first_air_date.split('-').reverse().join('/')}}</p>
         </li>
         <li>
           <strong>Valutazione: </strong>
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'Card',
+  name: 'CardSeries',
   props: {
     result: Object
   }
