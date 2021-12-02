@@ -36,7 +36,8 @@
             </li>
             <li>
               <strong>Valutazione: </strong>
-              <p>{{result.vote_average}}</p>
+                <i v-for="index in getRating(result)" :key="`stars${index}`" 
+                class="fas fa-star"></i>
             </li>
             <li>
               <strong>Descrizione: </strong>
@@ -57,6 +58,16 @@ export default {
   name: 'CardSeries',
   props: {
     result: Object
+  },
+  data(){
+    return {
+      star: `<i class="fas fa-star"></i>`
+    }
+  },
+  methods: {
+    getRating(result){
+      return Math.floor(result.vote_average / 2)
+    }
   }
 }
 </script>

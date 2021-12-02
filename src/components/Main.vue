@@ -1,7 +1,6 @@
 <template>
   <main>
     <div class="wrapper">
-
       <div class="default-msg"
         v-if="resultListMovies.length <= 0 && resultListSeries.length <= 0"
       >

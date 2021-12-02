@@ -36,7 +36,8 @@
             </li>
             <li>
               <strong>Valutazione: </strong>
-              <p>{{result.vote_average}}</p>
+                <i v-for="index in getRating(result)" :key="`stars${index}`" 
+                class="fas fa-star"></i>
             </li>
             <li>
               <strong>Descrizione: </strong>
@@ -57,6 +58,12 @@ export default {
   name: 'Card',
   props: {
     result: Object
+  },
+  
+  methods:{
+    getRating(result){
+      return Math.floor(result.vote_average / 2)
+    }
   }
 }
 </script>
@@ -84,9 +91,9 @@ export default {
           background-color: lighten($bg-color, 65%);
           img {
             width: 100%;  
-          max-width: initial;
-          height: 100%;
-          max-height: initial;
+            max-width: initial;
+            height: 100%;
+            max-height: initial;
           }
           h2 {
             padding: 0 10px;
@@ -119,7 +126,6 @@ export default {
         color: white;
         transform: rotateY(180deg);
       }
-    // overflow: auto;
     ul {
       padding: 10px 0;
       li {
