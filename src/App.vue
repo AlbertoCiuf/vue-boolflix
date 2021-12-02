@@ -2,7 +2,7 @@
   <div id="app">
     <Header 
       @sendSearch="getSearch"
-      @resetSearch=" apiResultsMovies = [], apiResultsSeries = []"
+      @resetSearch=" apiResultsMovies = [], apiResultsSeries = [] "
     />
     <Main 
       :resultListMovies="apiResultsMovies"

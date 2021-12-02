@@ -18,7 +18,7 @@
         </section>
         <h2 v-if="resultListSeries.length > 0">Serie TV</h2>
         <section class="serie">
-          <CardSeries 
+          <Card 
             v-for="item in resultListSeries" 
             :key="item.id" 
             :result="item"
@@ -33,12 +33,10 @@
 
 <script>
 import Card from './Card.vue'
-import CardSeries from './CardSeries.vue'
 export default {
   name: 'Main',
   components: {
     Card,
-    CardSeries
   },
   props: {
     resultListMovies: Array,

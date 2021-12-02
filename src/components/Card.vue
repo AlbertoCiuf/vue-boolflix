@@ -1,7 +1,9 @@
 <template>
   <div class="card">
       <div class="card-inner">
-        <div class="front">
+
+        <!-- gestione locandina mancante film -->
+        <div class="front" v-if="result.title">
           <img v-if="result.poster_path !== null" 
             class="poster" 
             :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`" 
@@ -9,11 +11,25 @@
           >
           <h2 v-else>{{result.title}} <p>Nessuna locandina trovata</p> </h2>
         </div>
+
+        <!-- gestione locandina mancante serie tv -->
+        <div class="front" v-else>
+          <img v-if="result.poster_path !== null"
+            class="poster" 
+            :src="`https://image.tmdb.org/t/p/w342${result.poster_path}`" 
+            :alt="`Locandina ${result.name}`"
+          >
+          <h2 v-else>{{result.name}} <p>Nessuna locandina trovata</p> </h2>
+        </div>
         <div class="back">
+          <!-- all'interno della lista, ogni 'li' che varia da serie tv a film controlla di quale dei due si tratta tramite la direttiva v-if e si comporta di conseguenza scegliendo quale key dell'oggetto stampare a schermo -->
           <ul>
             <li>
               <strong>Titolo originale: </strong>
-              <p>{{result.original_title}}</p>
+              <p v-if="result.original_title">
+                {{result.original_title}}
+              </p>
+              <p v-else>{{result.original_name}}</p>
             </li>
             <li>
               <strong>Lingua originale: </strong>
@@ -28,11 +44,17 @@
               <p v-else>{{result.original_language}}</p>
             <li>
               <strong>Titolo: </strong>
-              <p>{{result.title}}</p>
+              <p v-if="result.title">
+                {{result.title}}
+              </p>
+              <p v-else>{{result.name}}</p>
             </li>
             <li>
               <strong>Data di Uscita: </strong>
-              <p>{{result.release_date.split('-').reverse().join('/')}}</p>
+              <p v-if="result.release_date">
+                {{result.release_date.split('-').reverse().join('/')}}
+              </p>
+              <p v-else>{{result.first_air_date.split('-').reverse().join('/')}}</p>
             </li>
             <li>
               <strong>Valutazione: </strong>
@@ -46,7 +68,6 @@
               </p>
               <p v-else>N/A</p>
             </li>
-            
           </ul>
         </div>
       </div>
@@ -61,6 +82,7 @@ export default {
   },
   
   methods:{
+    //divido per due arrotondando per eccesso il voto restituito dall'API e poi nel template stampo un numero di stelle corrispondente al voto
     getRating(result){
       return Math.floor(result.vote_average / 2)
     }
