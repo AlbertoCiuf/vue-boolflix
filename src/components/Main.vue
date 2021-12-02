@@ -1,10 +1,12 @@
 <template>
   <main>
-    <Card 
-      v-for="item in resultList" 
-      :key="item.id" 
-      :result="item"
-    />
+
+      <Card 
+        v-for="item in resultList" 
+        :key="item.id" 
+        :result="item"
+      />
+
   </main>
 </template>
 
@@ -15,16 +17,11 @@ export default {
   components: {
     Card
   },
-  data(){
-    return {
-    }
-  },
+  
   props: {
     resultList: Array
   },
-  methods: {
-    
-  },
+ 
 }
 </script>
 
@@ -37,6 +34,5 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     padding: 50px 100px;
-    
   }
 </style>

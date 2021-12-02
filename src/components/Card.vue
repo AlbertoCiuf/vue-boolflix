@@ -7,7 +7,15 @@
         </li>
         <li>
           <strong>Lingua originale: </strong>
-          <p>{{result.original_language}}</p>
+          <img class="language-flag" 
+            src="../assets/img/it.png" alt="bandiera italiana"
+            v-if="result.original_language == 'it'"
+          >
+          <img class="language-flag" 
+            src="../assets/img/en.png" alt="bandiera regno unito"
+            v-else-if="result.original_language == 'en'"
+          >
+          <p v-else>{{result.original_language}}</p>
         <li>
           <strong>Titolo: </strong>
           <p>{{result.title}}</p>
@@ -53,6 +61,10 @@ export default {
       padding: 30px 0;
       li {
         padding-bottom: 20px;
+        img.language-flag {
+          width: 30px;
+          vertical-align: middle;
+        }
         p {
           display: inline-block;
         }
