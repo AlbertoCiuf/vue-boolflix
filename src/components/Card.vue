@@ -61,6 +61,9 @@
               <strong>Valutazione: </strong>
                 <i v-for="index in getRating(result)" :key="`stars${index}`" 
                 class="fas fa-star"></i>
+                <i v-for="index in (MAX_STARS - getRating(result))" :key="`stars${index}`" 
+                class="far fa-star"></i>
+
             </li>
             <li>
               <strong>Descrizione: </strong>
@@ -82,11 +85,15 @@ export default {
   props: {
     result: Object
   },
-  
+  data(){
+    return {
+      MAX_STARS:5
+    }
+  },
   methods:{
     //divido per due arrotondando per eccesso il voto restituito dall'API e poi nel template stampo un numero di stelle corrispondente al voto
     getRating(result){
-      return Math.floor(result.vote_average / 2)
+      return Math.ceil(result.vote_average / 2)
     }
   }
 }
@@ -157,6 +164,9 @@ export default {
         img.language-flag {
           width: 30px;
           vertical-align: middle;
+        }
+        i {
+          color: gold;
         }
         p {
           display: inline-block;

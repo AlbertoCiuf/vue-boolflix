@@ -11,7 +11,7 @@
       <div v-else class="content">
 
         <!-- elenco film -->
-        <h2 v-if="resultListMovies.length > 0">Film</h2>
+        <h2 class="section-name" v-if="resultListMovies.length > 0">Film</h2>
         <section class="film">
           <Card 
             v-for="item in resultListMovies" 
@@ -21,7 +21,7 @@
         </section>
 
         <!-- elenco serie tv -->
-        <h2 v-if="resultListSeries.length > 0">Serie TV</h2>
+        <h2 class="section-name" v-if="resultListSeries.length > 0">Serie TV</h2>
         <section class="serie">
           <Card 
             v-for="item in resultListSeries" 
@@ -60,6 +60,12 @@ export default {
       color: #fff;
       font-size: 40px;
       text-shadow: 5px 10px 10px darken($bg-color, 15%);
+    }
+    h2.section-name {
+      padding: 30px 0;
+    }
+    h2.section-name:first-child{
+      padding-top: 0;
     }
     section.film, section.serie {
       display: flex;

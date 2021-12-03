@@ -21,6 +21,7 @@ import axios from 'axios';
 
 export default {
   name: 'App',
+
   components: {
     Header,
     Main
@@ -33,6 +34,7 @@ export default {
       // apiUrl: 'https://api.themoviedb.org/3/search/',
       // searchTypeMovie: 'movie',
       // apiKey: '1f355eac8ba46b00364e7038d200138b',
+      animationDisplay:false
     }
   },
   methods:{
@@ -76,7 +78,8 @@ export default {
     getSearch(searchedValue){
       this.valueToSearch = searchedValue;
       this.callAPI();
-    }
+    },
+    
   }
 }
 </script>
