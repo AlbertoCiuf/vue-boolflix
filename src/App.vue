@@ -34,7 +34,6 @@ export default {
       // apiUrl: 'https://api.themoviedb.org/3/search/',
       // searchTypeMovie: 'movie',
       // apiKey: '1f355eac8ba46b00364e7038d200138b',
-      animationDisplay:false
     }
   },
   methods:{

@@ -63,9 +63,8 @@
                 class="fas fa-star"></i>
                 <i v-for="index in (MAX_STARS - getRating(result))" :key="`stars${index}`" 
                 class="far fa-star"></i>
-
             </li>
-            <li>
+            <li class="overview">
               <strong>Descrizione: </strong>
               <p v-if=" result.overview !== '' ">
                 {{result.overview}}
@@ -161,6 +160,10 @@ export default {
       padding: 10px 0;
       li {
         padding-bottom: 20px;
+        &.overview {
+          height: 175px;
+          overflow: auto;
+        }
         img.language-flag {
           width: 30px;
           vertical-align: middle;

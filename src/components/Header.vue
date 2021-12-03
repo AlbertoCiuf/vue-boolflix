@@ -37,10 +37,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/style/vars.scss';
   header {
     height: 120px;
     padding: 0 20px;
-    background-color: black;
+    background: linear-gradient(to bottom, black, $bg-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
